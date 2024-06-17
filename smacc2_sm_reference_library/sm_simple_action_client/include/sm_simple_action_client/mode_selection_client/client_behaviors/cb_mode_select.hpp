@@ -2,7 +2,7 @@
 #define ROBOT_STATE_MACHINE__CLIENTS__CB_MODE_SELECT_HPP_
 
 #include "smacc2/client_behaviors/cb_subscription_callback_base.hpp"
-#include "simple_action_client_example/mode_selection_client/cl_mode_select.hpp"
+#include "sm_simple_action_client/mode_selection_client/cl_mode_select.hpp"
 namespace robot_state_machine
 {
 

@@ -1,5 +1,0 @@
-<launch>
-  <node pkg="simple_action_client_example" exec="simple_action_client_example_node" name="simple_action_client_example" output="screen">
-    <param from="$(find-pkg-share simple_action_client_example)/config/simple_action_client_example_config.yaml" />
-  </node>
-</launch>

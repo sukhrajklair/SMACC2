@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(simple_action_client_example)
+project(sm_simple_action_client)
 
 # Default to C++17
 if(NOT CMAKE_CXX_STANDARD)

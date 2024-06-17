@@ -13,11 +13,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <simple_action_client_example/simple_action_client_example.hpp>
+#include <sm_simple_action_client/sm_simple_action_client.hpp>
 
 //--------------------------------------------------------------------
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  smacc2::run<robot_state_machine::SimpleSM>();
+  smacc2::run<robot_state_machine::SmSimpleActionClient>();
 }

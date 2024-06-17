@@ -16,7 +16,7 @@
 #define ROBOT_STATE_MACHINE__CLIENTS__CB_FIBONACCI_HPP_
 
 #include <smacc2/smacc_asynchronous_client_behavior.hpp>
-#include "simple_action_client_example/fibonacci_action_client/cl_fibonacci.hpp"
+#include "sm_simple_action_client/fibonacci_action_client/cl_fibonacci.hpp"
 
 namespace robot_state_machine
 {
