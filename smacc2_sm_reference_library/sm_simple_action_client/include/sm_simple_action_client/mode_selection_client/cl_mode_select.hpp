@@ -1,7 +1,3 @@
-#ifndef ROBOT_STATE_MACHINE__CLIENTS__CL_MODE_SELECT_HPP_
-#define ROBOT_STATE_MACHINE__CLIENTS__CL_MODE_SELECT_HPP_
-
-
 // Copyright 2021 RobosoftAI Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,6 +17,9 @@
 
 Author: Sukhraj Klair
 ******************************************************************************************************************/
+
+#ifndef ROBOT_STATE_MACHINE__CLIENTS__CL_MODE_SELECT_HPP_
+#define ROBOT_STATE_MACHINE__CLIENTS__CL_MODE_SELECT_HPP_
 
 #include "smacc2/client_bases/smacc_subscriber_client.hpp"
 #include "example_interfaces/msg/int32.hpp"
