@@ -21,8 +21,8 @@ Author: Sukhraj Klair
 #ifndef ROBOT_STATE_MACHINE__CLIENTS__CL_MODE_SELECT_HPP_
 #define ROBOT_STATE_MACHINE__CLIENTS__CL_MODE_SELECT_HPP_
 
-#include "smacc2/client_bases/smacc_subscriber_client.hpp"
 #include "example_interfaces/msg/int32.hpp"
+#include "smacc2/client_bases/smacc_subscriber_client.hpp"
 
 namespace robot_state_machine
 {
@@ -31,44 +31,44 @@ using namespace smacc2::client_bases;
 
 //declare the events
 template <typename TSource, typename TOrthogonal>
-struct EvAutonomousMode: sc::event<EvAutonomousMode<TSource, TOrthogonal>> 
+struct EvAutonomousMode : sc::event<EvAutonomousMode<TSource, TOrthogonal>>
 {
-
 };
 
 template <typename TSource, typename TOrthogonal>
-struct EvManualMode: sc::event<EvManualMode<TSource, TOrthogonal>> 
+struct EvManualMode : sc::event<EvManualMode<TSource, TOrthogonal>>
 {
-
 };
 
 class ClModeSelect : public SmaccSubscriberClient<example_interfaces::msg::Int32>
 {
 public:
-    ClModeSelect() : SmaccSubscriberClient<example_interfaces::msg::Int32>("mode_command") {}
+  ClModeSelect() : SmaccSubscriberClient<example_interfaces::msg::Int32>("mode_command") {}
 
-    template <typename TOrthogonal, typename TSourceObject>
-    void onOrthogonalAllocation()
+  template <typename TOrthogonal, typename TSourceObject>
+  void onOrthogonalAllocation()
+  {
+    post_autonomous_mode_event_ = [this]()
     {
-        post_autonomous_mode_event_ = [this]() {
-            RCLCPP_INFO(getLogger(), "ClModeSelect::post_autonomous_mode_event_");
-            // auto event = new EvAutonomousMode<TSourceObject, TOrthogonal>();
-            this->postEvent<EvAutonomousMode<TSourceObject, TOrthogonal>>();
-        };
-        post_manual_mode_event_ = [this]() {
-            RCLCPP_INFO(getLogger(), "ClModeSelect::post_manual_mode_event_");
-            // auto event = new EvManualMode<TSourceObject, TOrthogonal>();
-            this->postEvent<EvManualMode<TSourceObject, TOrthogonal>>();
-        };
+      RCLCPP_INFO(getLogger(), "ClModeSelect::post_autonomous_mode_event_");
+      // auto event = new EvAutonomousMode<TSourceObject, TOrthogonal>();
+      this->postEvent<EvAutonomousMode<TSourceObject, TOrthogonal>>();
+    };
+    post_manual_mode_event_ = [this]()
+    {
+      RCLCPP_INFO(getLogger(), "ClModeSelect::post_manual_mode_event_");
+      // auto event = new EvManualMode<TSourceObject, TOrthogonal>();
+      this->postEvent<EvManualMode<TSourceObject, TOrthogonal>>();
+    };
 
-        SmaccSubscriberClient<example_interfaces::msg::Int32>::onOrthogonalAllocation<TOrthogonal, TSourceObject>();
-    }
+    SmaccSubscriberClient<example_interfaces::msg::Int32>::onOrthogonalAllocation<
+      TOrthogonal, TSourceObject>();
+  }
 
-    std::function<void()> post_manual_mode_event_;
-    std::function<void()> post_autonomous_mode_event_;
-
+  std::function<void()> post_manual_mode_event_;
+  std::function<void()> post_autonomous_mode_event_;
 };
 
-}
+}  // namespace robot_state_machine
 
 #endif

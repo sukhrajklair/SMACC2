@@ -21,14 +21,14 @@
 #include "smacc2/smacc.hpp"
 
 //CLIENTS AND BEHAVIORS
-#include "sm_simple_action_client/mode_selection_client/cl_mode_select.hpp"
 #include "sm_simple_action_client/fibonacci_action_client/cl_fibonacci.hpp"
-#include "sm_simple_action_client/mode_selection_client/client_behaviors/cb_mode_select.hpp"
 #include "sm_simple_action_client/fibonacci_action_client/client_behaviors/cb_fibonacci.hpp"
+#include "sm_simple_action_client/mode_selection_client/cl_mode_select.hpp"
+#include "sm_simple_action_client/mode_selection_client/client_behaviors/cb_mode_select.hpp"
 
 // ORTHOGONALS
-#include "sm_simple_action_client/orthogonals/or_mode_select.hpp"
 #include "sm_simple_action_client/orthogonals/or_fibonacci.hpp"
+#include "sm_simple_action_client/orthogonals/or_mode_select.hpp"
 
 namespace robot_state_machine
 {
@@ -40,8 +40,7 @@ struct StState2;
 
 //--------------------------------------------------------------------
 //STATE_MACHINE
-struct SmSimpleActionClient
-: public smacc2::SmaccStateMachineBase<SmSimpleActionClient, StState1>
+struct SmSimpleActionClient : public smacc2::SmaccStateMachineBase<SmSimpleActionClient, StState1>
 {
   using SmaccStateMachineBase::SmaccStateMachineBase;
 

@@ -18,23 +18,19 @@
 Author: Sukhraj Klair
 ******************************************************************************************************************/
 
-
 #ifndef ROBOT_STATE_MACHINE__ORTHOGONALS__OR_MODE_SELECT_HPP_
 #define ROBOT_STATE_MACHINE__ORTHOGONALS__OR_MODE_SELECT_HPP_
 
-#include <smacc2/smacc_orthogonal.hpp>
 #include <sm_simple_action_client/mode_selection_client/cl_mode_select.hpp>
+#include <smacc2/smacc_orthogonal.hpp>
 
 namespace robot_state_machine
 {
 class OrModeSelect : public smacc2::Orthogonal<OrModeSelect>
 {
 public:
-    void onInitialize() override
-    {
-        auto client = this->createClient<ClModeSelect>();
-    }
+  void onInitialize() override { auto client = this->createClient<ClModeSelect>(); }
 };
-}
+}  // namespace robot_state_machine
 
 #endif  // ROBOT_STATE_MACHINE__ORTHOGONALS__OR_MODE_SELECT_HPP_

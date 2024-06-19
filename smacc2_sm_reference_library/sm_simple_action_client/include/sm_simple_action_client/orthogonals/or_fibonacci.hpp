@@ -18,12 +18,11 @@
 Author: Sukhraj Klair
 ******************************************************************************************************************/
 
-
 #ifndef ROBOT__STATE_MACHINE__ORTHOGONALS__OR_FIBONACCI_HPP_
 #define ROBOT__STATE_MACHINE__ORTHOGONALS__OR_FIBONACCI_HPP_
 
-#include "smacc2/smacc_orthogonal.hpp"
 #include "sm_simple_action_client/fibonacci_action_client/cl_fibonacci.hpp"
+#include "smacc2/smacc_orthogonal.hpp"
 
 namespace robot_state_machine
 {
@@ -31,11 +30,8 @@ namespace robot_state_machine
 class OrFibonacci : public smacc2::Orthogonal<OrFibonacci>
 {
 public:
-  void onInitialize() override
-  {
-    auto fibonacci_action_client = this->createClient<ClFibonacci>();
-  }
+  void onInitialize() override { auto fibonacci_action_client = this->createClient<ClFibonacci>(); }
 };
-} // namespace robot_state_machine
+}  // namespace robot_state_machine
 
-#endif // ROBOT__STATE_MACHINE__ORTHOGONALS__OR_FIBONACCI_HPP_
+#endif  // ROBOT__STATE_MACHINE__ORTHOGONALS__OR_FIBONACCI_HPP_
